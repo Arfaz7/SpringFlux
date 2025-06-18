@@ -18,8 +18,8 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public void create(Employee e) {
-        employeeRepository.save(e).subscribe();
+    public Mono<Employee> create(Employee e) {
+        return employeeRepository.save(e);
     }
 
     @Override

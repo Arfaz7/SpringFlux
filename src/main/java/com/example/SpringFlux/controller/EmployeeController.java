@@ -23,10 +23,9 @@ public class EmployeeController {
     private IEmployeeService employeeService;
 
     @PostMapping(value = { "/create", "/" })
-    @ResponseStatus(CREATED)
-    public void create(@RequestBody Employee e) {
+    public Mono<Employee> create(@RequestBody Employee e) {
         log.info("Creating Employee {}", e.getName());
-        employeeService.create(e);
+        return employeeService.create(e);
     }
 
     @GetMapping(value = "/{id}")
