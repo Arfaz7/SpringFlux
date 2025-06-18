@@ -1,17 +1,20 @@
 package com.example.SpringFlux.domain.model;
 
 import jakarta.persistence.Entity;
-import lombok.Getter;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 @Entity
-@Getter
+@Data
 public class Employee {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private long salary;
+    private Long salary;
 
     @Override
     public String toString() {
